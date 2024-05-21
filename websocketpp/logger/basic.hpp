@@ -75,7 +75,7 @@ public:
       , m_dynamic_channels(0)
       , m_out(h == channel_type_hint::error ? &std::cerr : &std::cout) {}
 
-    basic(basic<concurrency,names> const & other)
+    basic(level c, std::ostream * out)
       : m_static_channels(c)
       , m_dynamic_channels(0)
       , m_out(out) {}
@@ -84,7 +84,7 @@ public:
     ~basic() {}
 
     /// Copy constructor
-    basic<concurrency,names>(basic<concurrency,names> const & other)
+    basic(basic<concurrency,names> const & other)
      : m_static_channels(other.m_static_channels)
      , m_dynamic_channels(other.m_dynamic_channels)
      , m_out(other.m_out)
